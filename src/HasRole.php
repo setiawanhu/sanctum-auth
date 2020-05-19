@@ -3,10 +3,12 @@
 
 namespace Hu\Auth;
 
+use Hu\Auth\Models\Role;
+
 trait HasRole
 {
-    public function roles()
+    public function role()
     {
-        return $this->hasOne('roles');
+        return $this->hasOne(Role::class);
     }
 }
