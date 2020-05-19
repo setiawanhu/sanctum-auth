@@ -1,0 +1,37 @@
+{
+    "name": "setiawanhu/sanctum-auth",
+    "description": "Laravel package for laravel/sanctum auth",
+    "keywords": [
+        "laravel",
+        "sanctum",
+        "auth"
+    ],
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Setiawan Hu",
+            "email": "setiawanhu@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.2.5",
+        "ext-json": "*",
+        "laravel/sanctum": "^2.0",
+        "illuminate/support": "^7.0",
+        "illuminate/database": "^7.0"
+
+    },
+    "autoload": {
+        "psr-4": {
+            "Hu\\Auth\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Hu\\Auth\\SanctumAuthServiceProvider"
+            ]
+        }
+    }
+}

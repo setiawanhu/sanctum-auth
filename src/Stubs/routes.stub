@@ -1,0 +1,23 @@
+
+/*
+|--------------------------------------------------------------------------
+| Sanctum Auth Routing
+|--------------------------------------------------------------------------
+|
+| Authentication routing for Sanctum Auth package.
+|
+*/
+
+Route::group(['prefix' => config('auth.prefix', 'auth'), 'namespace' => 'Auth'], function () {
+
+    Route::post('login', '{{controller}}@login');
+
+    Route::group(['middleware' => 'auth:sanctum'], function () {
+
+        Route::get('user', '{{controller}}@user');
+
+        Route::post('logout', '{{controller}}@logout');
+
+    });
+
+});
