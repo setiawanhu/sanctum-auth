@@ -1,6 +1,6 @@
 {
     "name": "setiawanhu/sanctum-auth",
-    "description": "Laravel package for laravel/sanctum auth",
+    "description": "Laravel package for generating auth controller using laravel/sanctum",
     "keywords": [
         "laravel",
         "sanctum",
