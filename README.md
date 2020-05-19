@@ -4,6 +4,12 @@ Laravel package for Laravel Sanctum user authentication feature
 
 For information & usage about Laravel Sanctum, please refer to [Laravel Sanctum documentation](https://laravel.com/docs/7.x/sanctum).
 
+## Get Started
+
+Include the Sanctum Auth package by calling this composer command in project root:
+
+> `composer require setiawanhu/sanctum-auth`
+
 ## Usage
 
 We may publish the Sanctum Auth migration files using `vendor:publish` artisan command:
