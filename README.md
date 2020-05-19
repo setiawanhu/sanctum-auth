@@ -1,4 +1,5 @@
 # Laravel Sanctum Auth Package
+[![Latest Stable Version](https://poser.pugx.org/setiawanhu/sanctum-auth/v)](//packagist.org/packages/setiawanhu/sanctum-auth) [![Total Downloads](https://poser.pugx.org/setiawanhu/sanctum-auth/downloads)](//packagist.org/packages/setiawanhu/sanctum-auth) [![License](https://poser.pugx.org/setiawanhu/sanctum-auth/license)](//packagist.org/packages/setiawanhu/sanctum-auth) 
 
 Laravel package for Laravel Sanctum user authentication feature
 
