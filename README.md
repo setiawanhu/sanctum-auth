@@ -49,6 +49,6 @@ Then, run the database migration command:
 
 > `php artisan migrate` 
 
-##Dig Deeper
+## Dig Deeper
 
 Please check [wiki](https://github.com/setiawanhu/sanctum-auth/wiki) for more details about sanctum-auth usage
