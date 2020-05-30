@@ -1,7 +1,7 @@
-# Laravel Sanctum Auth Package
+# Laravel sanctum-auth Package
 [![Latest Stable Version](https://poser.pugx.org/setiawanhu/sanctum-auth/v)](//packagist.org/packages/setiawanhu/sanctum-auth) [![Total Downloads](https://poser.pugx.org/setiawanhu/sanctum-auth/downloads)](//packagist.org/packages/setiawanhu/sanctum-auth) [![License](https://poser.pugx.org/setiawanhu/sanctum-auth/license)](//packagist.org/packages/setiawanhu/sanctum-auth) 
 
-Laravel package for Laravel Sanctum user authentication feature
+Laravel package for generating user authentication feature using Laravel Sanctum
 
 For information & usage about Laravel Sanctum, please refer to [Laravel Sanctum documentation](https://laravel.com/docs/7.x/sanctum).
 
@@ -48,3 +48,7 @@ Then, we add a new field to the users table:
 Then, run the database migration command:
 
 > `php artisan migrate` 
+
+##Dig Deeper
+
+Please check [wiki](https://github.com/setiawanhu/sanctum-auth/wiki) for more details about sanctum-auth usage
