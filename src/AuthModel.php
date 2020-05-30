@@ -47,6 +47,6 @@ abstract class AuthModel extends User
      */
     static function authenticated()
     {
-        return auth('web')->user();
+        return auth()->user();
     }
 }
