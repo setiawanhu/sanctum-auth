@@ -2,6 +2,7 @@
 
 namespace Hu\Auth;
 
+use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\ServiceProvider;
 
@@ -14,7 +15,10 @@ class SanctumAuthServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->bind('sanctum-auth-model', function (Application $app) {
+            return $app->make(config('auth.providers.users.model'));
+        });
+        $this->app->alias('sanctum-auth-model', AuthModel::class);
     }
 
     /**

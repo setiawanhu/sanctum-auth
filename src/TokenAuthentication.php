@@ -3,10 +3,38 @@
 
 namespace Hu\Auth;
 
+use Hu\Auth\Exceptions\InvalidCredentialException;
+use Hu\Auth\Requests\AuthRequest;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\Hash;
 
 trait TokenAuthentication
 {
+    /**
+     * Handle a login attempt.
+     *
+     * @param AuthRequest $request
+     * @return JsonResponse
+     * @throws InvalidCredentialException
+     */
+    public function login(AuthRequest $request)
+    {
+        $validated = $request->validated();
+
+        $credentials = [
+            $this->username() => $validated['username'],
+            'password' => $validated['password']
+        ];
+
+        $user = $this->user->where($this->username(), '=', $credentials[$this->username()])->first();
+
+        if ($user && Hash::check($credentials['password'], $user->password)) {
+            return $this->loginSuccessResponse($user);
+        }
+
+        throw new InvalidCredentialException();
+    }
+
     /**
      * Handle a logout request.
      *
@@ -24,14 +52,15 @@ trait TokenAuthentication
     /**
      * Generate login success response.
      *
+     * @param AuthModel $user
      * @return JsonResponse
      */
-    private function loginSuccessResponse()
+    protected function loginSuccessResponse(AuthModel $user)
     {
         return response()->json([
             'result' => [
                 'message' => 'Login success',
-                'token' => AuthModel::authenticated()->createToken('auth-token')->plainTextToken
+                'token' => $user->createToken('auth-token')->plainTextToken
             ]
         ]);
     }

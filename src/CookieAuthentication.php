@@ -2,6 +2,8 @@
 
 namespace Hu\Auth;
 
+use Hu\Auth\Exceptions\InvalidCredentialException;
+use Hu\Auth\Requests\AuthRequest;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
@@ -12,6 +14,31 @@ use Illuminate\Http\Request;
  */
 trait CookieAuthentication
 {
+    /**
+     * Handle a login attempt.
+     *
+     * @param AuthRequest $request
+     * @return JsonResponse
+     * @throws InvalidCredentialException
+     */
+    public function login(AuthRequest $request)
+    {
+        $validated = $request->validated();
+
+        $credentials = [
+            $this->username() => $validated['username'],
+            'password' => $validated['password']
+        ];
+
+        if ($this->guard()->attempt($credentials)) {
+            $request->session()->regenerate();
+
+            return $this->loginSuccessResponse();
+        }
+
+        throw new InvalidCredentialException();
+    }
+
     /**
      * Handle a logout request.
      *
@@ -36,7 +63,7 @@ trait CookieAuthentication
      *
      * @return JsonResponse
      */
-    private function loginSuccessResponse()
+    protected function loginSuccessResponse()
     {
         return response()->json([
             'result' => [

@@ -12,31 +12,6 @@ use Illuminate\Support\Facades\Auth;
 trait UserAuthentication
 {
     /**
-     * Handle a login attempt.
-     *
-     * @param AuthRequest $request
-     * @return JsonResponse
-     * @throws InvalidCredentialException
-     */
-    public function login(AuthRequest $request)
-    {
-        $validated = $request->validated();
-
-        $credentials = [
-            $this->username() => $validated['username'],
-            'password' => $validated['password']
-        ];
-
-        if ($this->guard()->attempt($credentials)) {
-            $request->session()->regenerate();
-
-            return $this->loginSuccessResponse();
-        }
-
-        throw new InvalidCredentialException();
-    }
-
-    /**
      * Get User's username field.
      *
      * @return string
