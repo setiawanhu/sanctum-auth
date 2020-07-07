@@ -9,19 +9,25 @@ For information & usage about Laravel Sanctum, please refer to [Laravel Sanctum 
 
 Include the Sanctum Auth package by calling this composer command in project root:
 
-> `composer require setiawanhu/sanctum-auth`
+```
+composer require setiawanhu/sanctum-auth
+```
 
 ## Usage
 
 We may publish the Sanctum Auth migration files using `vendor:publish` artisan command:
 
-> `php artisan vendor:publish --provider="Hu\Auth\SanctumAuthServiceProvider"` 
+```
+php artisan vendor:publish --provider="Hu\Auth\SanctumAuthServiceProvider"
+``` 
 
 This command will copy the user role's migration file to /database/migrations folder and will publishing the `laravel/sanctum` configuration and migration files.
 
 Then, run Sanctum Auth artisan command by running:
 
-> `php artisan sanctum-auth:controller [{type} --force]`
+```
+php artisan sanctum-auth:controller [{type} --force]
+```
 
 This command will generate the auth routing out of the box.
 
@@ -33,7 +39,11 @@ Note:
 
 Then, make `User` model to extend `AuthModel` class:
 
-> `class User extends AuthModel`
+```
+class User extends AuthModel {
+    //...
+}
+```
 
 ## Using Roles
 
@@ -43,11 +53,21 @@ if the `User` has roles, we may use the `HasRole` trait to the `User` model:
 
 Then, we add a new field to the users table:
 
-> `$table->unsignedBigInteger('role_id')` 
+```
+//...
+Schema::create('users', function (Blueprint $table) {
+    //...
+    $table->unsignedBigInteger('role_id')
+    //...
+}
+//...
+``` 
 
 Then, run the database migration command:
 
-> `php artisan migrate` 
+```
+php artisan migrate
+```
 
 ## Dig Deeper
 
