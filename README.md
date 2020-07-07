@@ -49,17 +49,30 @@ class User extends AuthModel {
 
 if the `User` has roles, we may use the `HasRole` trait to the `User` model:
 
-> `use HasRole;`
+```
+class User extends AuthModel {
+
+    use HasRole;
+    
+    //...
+}
+```
 
 Then, we add a new field to the users table:
 
 ```
 //...
+
 Schema::create('users', function (Blueprint $table) {
+
     //...
+    
     $table->unsignedBigInteger('role_id')
+    
     //...
+    
 }
+
 //...
 ``` 
 
