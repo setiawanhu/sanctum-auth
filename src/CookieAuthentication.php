@@ -60,7 +60,7 @@ trait CookieAuthentication
     /**
      * Generated logout success response.
      *
-     * @return JsonResponse
+     * @return JsonResponse|Response
      */
     protected function logoutSuccessResponse()
     {
