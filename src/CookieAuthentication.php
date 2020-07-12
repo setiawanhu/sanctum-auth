@@ -6,6 +6,7 @@ use Hu\Auth\Exceptions\InvalidCredentialException;
 use Hu\Auth\Requests\AuthRequest;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 /**
  * Class AuthController
@@ -53,6 +54,16 @@ trait CookieAuthentication
 
         $request->session()->regenerateToken();
 
+        return $this->logoutSuccessResponse();
+    }
+
+    /**
+     * Generated logout success response.
+     *
+     * @return JsonResponse
+     */
+    protected function logoutSuccessResponse()
+    {
         return response()->json([
             'result' => 'Logout success'
         ]);
@@ -61,7 +72,7 @@ trait CookieAuthentication
     /**
      * Generate login success response.
      *
-     * @return JsonResponse
+     * @return JsonResponse|Response
      */
     protected function loginSuccessResponse()
     {
