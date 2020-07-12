@@ -44,6 +44,16 @@ trait TokenAuthentication
     {
         AuthModel::revokeCurrentAccessToken();
 
+        return $this->logoutSuccessResponse();
+    }
+
+    /**
+     * Generated logout success response.
+     *
+     * @return JsonResponse
+     */
+    protected function logoutSuccessResponse()
+    {
         return response()->json([
             'result' => 'Logout success'
         ]);
