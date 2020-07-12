@@ -40,6 +40,8 @@ Note:
 Then, make `User` model to extend `AuthModel` class:
 
 ```
+use Hu\Auth\AuthModel;
+
 class User extends AuthModel {
     //...
 }
@@ -50,6 +52,8 @@ class User extends AuthModel {
 if the `User` has roles, we may use the `HasRole` trait to the `User` model:
 
 ```
+use Hu\Auth\HasRole;
+
 class User extends AuthModel {
 
     use HasRole;
