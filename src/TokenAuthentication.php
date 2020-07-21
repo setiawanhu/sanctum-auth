@@ -1,21 +1,24 @@
 <?php
 
-
 namespace Hu\Auth;
 
-use Hu\Auth\Exceptions\InvalidCredentialException;
 use Hu\Auth\Requests\AuthRequest;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Hash;
 
+/**
+ * Trait TokenAuthentication
+ *
+ * @package Hu\Auth
+ */
 trait TokenAuthentication
 {
     /**
      * Handle a login attempt.
      *
      * @param AuthRequest $request
-     * @return JsonResponse
-     * @throws InvalidCredentialException
+     * @return JsonResponse|Response
      */
     public function login(AuthRequest $request)
     {
@@ -32,13 +35,13 @@ trait TokenAuthentication
             return $this->loginSuccessResponse($user);
         }
 
-        throw new InvalidCredentialException();
+        return $this->loginFailedResponse();
     }
 
     /**
      * Handle a logout request.
      *
-     * @return JsonResponse
+     * @return JsonResponse|Response
      */
     public function logout()
     {
@@ -50,7 +53,7 @@ trait TokenAuthentication
     /**
      * Generated logout success response.
      *
-     * @return JsonResponse
+     * @return JsonResponse|Response
      */
     protected function logoutSuccessResponse()
     {
@@ -63,7 +66,7 @@ trait TokenAuthentication
      * Generate login success response.
      *
      * @param AuthModel $user
-     * @return JsonResponse
+     * @return JsonResponse|Response
      */
     protected function loginSuccessResponse(AuthModel $user)
     {
@@ -73,5 +76,19 @@ trait TokenAuthentication
                 'token' => $user->createToken('auth-token')->plainTextToken
             ]
         ]);
+    }
+
+    /**
+     * Generate login failed response.
+     *
+     * @return JsonResponse|Response
+     */
+    protected function loginFailedResponse()
+    {
+        return response()->json([
+            'result' => [
+                'message' => 'Unauthenticated.'
+            ]
+        ], 401);
     }
 }
