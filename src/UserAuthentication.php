@@ -1,10 +1,7 @@
 <?php
 
-
 namespace Hu\Auth;
 
-use Hu\Auth\Exceptions\InvalidCredentialException;
-use Hu\Auth\Requests\AuthRequest;
 use Illuminate\Contracts\Auth\StatefulGuard;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Auth;
