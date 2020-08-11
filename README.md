@@ -39,7 +39,7 @@ Note:
 
 Then, make `User` model to extend `AuthModel` class:
 
-```
+```php
 use Hu\Auth\AuthModel;
 
 class User extends AuthModel {
@@ -51,7 +51,7 @@ class User extends AuthModel {
 
 if the `User` has roles, we may use the `HasRole` trait to the `User` model:
 
-```
+```php
 use Hu\Auth\HasRole;
 
 class User extends AuthModel {
@@ -64,7 +64,7 @@ class User extends AuthModel {
 
 Then, we add a new field to the users table:
 
-```
+```php
 //...
 
 Schema::create('users', function (Blueprint $table) {
