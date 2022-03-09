@@ -64,7 +64,7 @@ class SanctumAuthServiceProvider extends ServiceProvider
     }
 
     /**
-     * Calling artisan vendor:publish command to publish Sanctum's configuration & migration files.
+     * Calling artisan 'vendor:publish' command to publish Sanctum's configuration & migration files.
      *
      * @return void
      */
