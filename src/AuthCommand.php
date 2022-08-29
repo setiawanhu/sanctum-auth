@@ -103,7 +103,7 @@ class AuthCommand extends Command
     {
         return str_replace(
             '{{controller}}',
-            str_replace('.php', '', $controllerName),
+            '\App\Http\Controllers\Auth\\' . str_replace('.php', '', $controllerName) . '::class',
             file_get_contents(__DIR__ . '/Stubs/routes.stub')
         );
     }
