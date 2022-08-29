@@ -8,15 +8,18 @@
 |
 */
 
-Route::group(['prefix' => config('auth.prefix', 'auth'), 'namespace' => 'Auth'], function () {
+Route::group([
+    'prefix' => config('auth.prefix', 'auth'),
+    'controller' => {{controller}}
+], function () {
 
-    Route::post('login', '{{controller}}@login');
+    Route::post('login', 'login');
 
     Route::group(['middleware' => 'auth:sanctum'], function () {
 
-        Route::get('user', '{{controller}}@user');
+        Route::get('user', 'user');
 
-        Route::post('logout', '{{controller}}@logout');
+        Route::post('logout', 'logout');
 
     });
 

@@ -13,7 +13,7 @@ Include the Sanctum Auth package by calling this composer command in project roo
 composer require setiawanhu/sanctum-auth
 ```
 
-**Note**: This package is only supporting Laravel 7 & 8
+**Note**: This package is only supporting Laravel 9
 
 ## Usage
 
@@ -23,7 +23,7 @@ We may publish the Sanctum Auth migration files using `vendor:publish` artisan c
 php artisan vendor:publish --provider="Hu\Auth\SanctumAuthServiceProvider"
 ``` 
 
-This command will copy the user role's migration file to /database/migrations folder and will publishing the `laravel/sanctum` configuration and migration files.
+This command will copy the user role's migration file to /database/migrations folder and will publish the `laravel/sanctum` configuration and migration files.
 
 Then, run Sanctum Auth artisan command by running:
 

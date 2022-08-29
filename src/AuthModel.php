@@ -31,7 +31,7 @@ abstract class AuthModel extends User
      *
      * @return void
      */
-    static function revokeCurrentAccessToken()
+    static function revokeCurrentAccessToken(): void
     {
         $user = self::authenticated();
 
@@ -45,7 +45,7 @@ abstract class AuthModel extends User
      *
      * @return AuthModel|Authenticatable|null
      */
-    static function authenticated()
+    static function authenticated(): AuthModel|Authenticatable|null
     {
         return auth()->user();
     }
