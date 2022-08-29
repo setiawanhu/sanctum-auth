@@ -13,7 +13,7 @@ Include the Sanctum Auth package by calling this composer command in project roo
 composer require setiawanhu/sanctum-auth
 ```
 
-**Note**: This package is only supporting Laravel 7 & 8
+**Note**: This package is only supporting Laravel 9
 
 ## Usage
 

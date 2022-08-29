@@ -15,11 +15,11 @@
         }
     ],
     "require": {
-        "php": "^7.2.5",
+        "php": "^8.0.2",
         "ext-json": "*",
-        "laravel/sanctum": "^2.0",
-        "illuminate/support": "^7.0|^8.0",
-        "illuminate/database": "^7.0|^8.0"
+        "laravel/sanctum": "^3.0",
+        "illuminate/support": "^9.21",
+        "illuminate/database": "^9.21"
     },
     "autoload": {
         "psr-4": {
