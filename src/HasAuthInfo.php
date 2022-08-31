@@ -24,18 +24,17 @@ trait HasAuthInfo
      *
      * @return User|Model
      */
-    public function info()
+    public function info(): Model|User
     {
         return $this->accountInfo()->findOrFail($this->id);
     }
-
 
     /**
      * Get authenticated user's login info after authenticated.
      *
      * @return AuthModel|array
      */
-    public abstract function loginInfo();
+    public abstract function loginInfo(): AuthModel|array;
 
     /**
      * Scope a query to get user account information.
@@ -43,5 +42,5 @@ trait HasAuthInfo
      * @param Builder $query
      * @return Builder
      */
-    public abstract function scopeAccountInfo(Builder $query);
+    public abstract function scopeAccountInfo(Builder $query): Builder;
 }

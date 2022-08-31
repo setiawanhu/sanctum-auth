@@ -19,7 +19,7 @@ class CheckUserRole
      * @return mixed
      * @throws InvalidRoleException
      */
-    public function handle($request, Closure $next, ...$roles)
+    public function handle(Request $request, Closure $next, ...$roles): mixed
     {
         $roles = collect($roles);
         $authenticated = AuthModel::authenticated();

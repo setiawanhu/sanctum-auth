@@ -13,7 +13,7 @@ class SanctumAuthServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function register()
+    public function register(): void
     {
         $this->app->bind('sanctum-auth-model', function (Application $app) {
             return $app->make(config('auth.providers.users.model'));
@@ -26,7 +26,7 @@ class SanctumAuthServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
+    public function boot(): void
     {
         if ($this->app->runningInConsole()) {
             $this->registerCommands();
@@ -46,7 +46,7 @@ class SanctumAuthServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    protected function registerCommands()
+    protected function registerCommands(): void
     {
         $this->commands([
             AuthCommand::class
@@ -58,7 +58,7 @@ class SanctumAuthServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    protected function registerMigrations()
+    protected function registerMigrations(): void
     {
         $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
     }
@@ -68,7 +68,7 @@ class SanctumAuthServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    protected function publishSanctumFiles()
+    protected function publishSanctumFiles(): void
     {
         Artisan::call('vendor:publish', [
             '--provider' => 'Laravel\Sanctum\SanctumServiceProvider'

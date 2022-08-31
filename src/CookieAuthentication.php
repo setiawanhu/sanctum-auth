@@ -20,7 +20,7 @@ trait CookieAuthentication
      * @param AuthRequest $request
      * @return JsonResponse|Response
      */
-    public function login(AuthRequest $request)
+    public function login(AuthRequest $request): Response|JsonResponse
     {
         $validated = $request->validated();
 
@@ -44,7 +44,7 @@ trait CookieAuthentication
      * @param Request $request
      * @return JsonResponse|Response
      */
-    public function logout(Request $request)
+    public function logout(Request $request): Response|JsonResponse
     {
         $this->guard()->logout();
 
@@ -60,7 +60,7 @@ trait CookieAuthentication
      *
      * @return JsonResponse|Response
      */
-    protected function logoutSuccessResponse()
+    protected function logoutSuccessResponse(): Response|JsonResponse
     {
         return response()->json([
             'result' => 'Logout success'
@@ -72,7 +72,7 @@ trait CookieAuthentication
      *
      * @return JsonResponse|Response
      */
-    protected function loginSuccessResponse()
+    protected function loginSuccessResponse(): Response|JsonResponse
     {
         return response()->json([
             'result' => [
@@ -87,7 +87,7 @@ trait CookieAuthentication
      *
      * @return JsonResponse|Response
      */
-    protected function loginFailedResponse()
+    protected function loginFailedResponse(): Response|JsonResponse
     {
         return response()->json([
             'result' => [

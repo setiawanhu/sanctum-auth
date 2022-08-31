@@ -37,7 +37,7 @@ class AuthCommand extends Command
      *
      * @return void
      */
-    public function handle()
+    public function handle(): void
     {
         if (!collect([AuthModel::TOKEN, AuthModel::SPA])->contains($this->argument('type'))) {
             $this->error('Invalid controller type (must either token / spa).');
@@ -75,7 +75,7 @@ class AuthCommand extends Command
      *
      * @return void
      */
-    protected function checkForMissingDirectory()
+    protected function checkForMissingDirectory(): void
     {
         if (!is_dir($directory = app_path('Http/Controllers/Auth'))) {
             mkdir($directory, 0755);
@@ -99,7 +99,7 @@ class AuthCommand extends Command
      * @param string $controllerName
      * @return string
      */
-    protected function compileRoutesStub($controllerName)
+    protected function compileRoutesStub($controllerName): string
     {
         return str_replace(
             '{{controller}}',

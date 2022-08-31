@@ -20,7 +20,7 @@ trait TokenAuthentication
      * @param AuthRequest $request
      * @return JsonResponse|Response
      */
-    public function login(AuthRequest $request)
+    public function login(AuthRequest $request): Response|JsonResponse
     {
         $validated = $request->validated();
 
@@ -43,7 +43,7 @@ trait TokenAuthentication
      *
      * @return JsonResponse|Response
      */
-    public function logout()
+    public function logout(): Response|JsonResponse
     {
         AuthModel::revokeCurrentAccessToken();
 
@@ -55,7 +55,7 @@ trait TokenAuthentication
      *
      * @return JsonResponse|Response
      */
-    protected function logoutSuccessResponse()
+    protected function logoutSuccessResponse(): Response|JsonResponse
     {
         return response()->json([
             'result' => 'Logout success'
@@ -68,7 +68,7 @@ trait TokenAuthentication
      * @param AuthModel $user
      * @return JsonResponse|Response
      */
-    protected function loginSuccessResponse(AuthModel $user)
+    protected function loginSuccessResponse(AuthModel $user): Response|JsonResponse
     {
         return response()->json([
             'result' => [
@@ -83,7 +83,7 @@ trait TokenAuthentication
      *
      * @return JsonResponse|Response
      */
-    protected function loginFailedResponse()
+    protected function loginFailedResponse(): Response|JsonResponse
     {
         return response()->json([
             'result' => [

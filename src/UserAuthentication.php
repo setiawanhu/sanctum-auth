@@ -13,7 +13,7 @@ trait UserAuthentication
      *
      * @return string
      */
-    protected function username()
+    protected function username(): string
     {
         return 'email';
     }
@@ -23,7 +23,7 @@ trait UserAuthentication
      *
      * @return StatefulGuard
      */
-    protected function guard()
+    protected function guard(): StatefulGuard
     {
         return Auth::guard('web');
     }
@@ -33,7 +33,7 @@ trait UserAuthentication
      *
      * @return JsonResponse
      */
-    public function user()
+    public function user(): JsonResponse
     {
         return response()->json([
             'result' => AuthModel::authenticated()->info()
